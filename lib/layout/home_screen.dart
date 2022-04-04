@@ -162,17 +162,15 @@ class EditTextChatDetails extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Colors.teal,
                     shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
+                    gradient: RadialGradient(
+                        focal: Alignment.center,
                         colors: [
-                          Color(0xFF5899CF),
                           Color(0xff00BED6),
                           Color(0xFF19BDC1),
+                          Color(0xFF05BBA8),
                         ]),
                   ),
-                  child:
-                  IconButton(
+                  child:IconButton(
                     icon: const Icon(Icons.send, size: 20,color: Colors.white,),
                     onPressed: (){},
                   )

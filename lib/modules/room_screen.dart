@@ -10,45 +10,47 @@ class RoomScreen extends GetWidget<RoomCallViewModel> {
         init:RoomCallViewModel(),
         builder: (controller){
           return Scaffold(
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: ElevatedButton(
-                            onPressed:controller.isJoined ? controller.leaveChannel : controller.joinChannel,
-                            child: Text('${controller.isJoined ? 'Leave' : 'Join'} channel'),
-                          ),
-                        )
-                      ],
+            appBar: AppBar(title: const Text('Rooms'),),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                      'Space Title',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  const SizedBox(height: 20,),
+                  ElevatedButton(
+                    onPressed:controller.isJoined ? controller.leaveChannel : controller.joinChannel,
+                    child: Text('${controller.isJoined ? 'Leave' : 'Join'} this space'),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
+                  ),
+                  const SizedBox(height: 20,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
                           onPressed: controller.switchMicrophone,
-                          child: Text('Microphone ${controller.openMicrophone ? 'on' : 'off'}'),
-                        ),
-                        ElevatedButton(
+                          icon: controller.openMicrophone ?
+                          const Icon(Icons.mic):
+                          const Icon(Icons.mic_off,color: Colors.red,)
+                      ),
+                      IconButton(
                           onPressed: controller.isJoined ? controller.switchSpeakerphone : null,
-                          child:
-                          Text(controller.enableSpeakerphone ? 'Speakerphone' : 'Earpiece'),
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary:Colors.red),
-                          onPressed:(){Get.back();},
-                            child: Text('Back'),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                          icon: controller.enableSpeakerphone ?
+                          const Icon(Icons.volume_up,):
+                          const Icon(Icons.volume_off,color: Colors.grey,)
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           );

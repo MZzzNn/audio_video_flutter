@@ -15,7 +15,7 @@ class AudioCallScreen extends GetWidget<AudioCallViewModel> {
               children: [
                  Center(
                      child: controller.remoteUid !=0 ?
-                     const Text('mazen in call',textAlign: TextAlign.center,):
+                     const Text('User name',textAlign: TextAlign.center,):
                      const Text('calling....',textAlign: TextAlign.center,)
                 ),
                 Padding(
