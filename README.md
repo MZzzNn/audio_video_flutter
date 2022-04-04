@@ -10,22 +10,26 @@ This project help flutter beginner to make Audio call, Video call and Rooms usin
 - Use this package [Agora RTC Engine](https://pub.dev/packages/agora_rtc_engine) 
 
 ## Audio Call
-
-This is Audio call screen.
-<p align="center"><a href="assets/images/img_2.png"></a></p>
-
+- This is Audio call screen. 
+<p align="center">
+<img src="assets/images/img_2.png" width="200" alt="Audio Call">
+</p>
 
 ## Video Call
 
-This is Video call screen before user join to call.
-<p align="center"><a href="assets/images/img_3.png"></a></p>
+- This is Video call screen before user join to call.
+<p align="center">
+<img src="assets/images/img_3.png" width="200" alt="before Video Call">
+</p>
 
-<br>
-
-This is Video call screen after user join to call.
-<p align="center"><a href="assets/images/img_4.png"></a></p>
+- This is Video call screen after user join to call.
+<p align="center">
+<img src="assets/images/img_4.png" width="200" alt="after Video Call">
+</p>
 
 ## Room channel
 
-you can join channel or space and left and make mute.
-<p align="center"><a href="assets/images/img_5.png"></a></p>
+- you can join channel or space and left and make mute.
+<p align="center">
+<img src="assets/images/img_5.png" width="200" alt="after Video Call">
+</p>
