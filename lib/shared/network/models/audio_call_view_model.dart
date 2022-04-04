@@ -4,14 +4,19 @@ import 'package:permission_handler/permission_handler.dart';
 import '../../components/constant.dart';
 
 class AudioCallViewModel extends GetxController{
+
   int remoteUid = 0;
   late RtcEngine rtcEngine;
-
 
   initAgora()async{
     await Permission.microphone.request();
     rtcEngine = await RtcEngine.create(appID);
     rtcEngine.enableAudio();
+    _addListeners();
+    await rtcEngine.joinChannel(token, channelName, null, remoteUid);
+  }
+
+  void _addListeners() {
     rtcEngine.setEventHandler(
       RtcEngineEventHandler(
           joinChannelSuccess: (channel, uid, elapsed) {
@@ -30,21 +35,19 @@ class AudioCallViewModel extends GetxController{
           }
       ),
     );
-    await rtcEngine.joinChannel(token, channelName, null, remoteUid);
   }
-
-
-
 
   @override
   void onInit() {
-    super.onInit();
     initAgora();
+    super.onInit();
   }
+
   @override
   void onClose() {
-    super.onClose();
     rtcEngine.disableAudio();
     rtcEngine.destroy();
+    super.onClose();
   }
+
 }

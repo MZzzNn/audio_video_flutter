@@ -5,6 +5,7 @@ import 'package:permission_handler/permission_handler.dart';
 import '../../components/constant.dart';
 
 class RoomCallViewModel extends GetxController{
+
   int remoteUid = 0;
   late RtcEngine rtcEngine;
   bool isJoined = false, openMicrophone = true, enableSpeakerphone = true;
@@ -17,6 +18,7 @@ class RoomCallViewModel extends GetxController{
     await rtcEngine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     await rtcEngine.setClientRole(ClientRole.Broadcaster);
   }
+
   void _addListeners() {
     rtcEngine.setEventHandler(RtcEngineEventHandler(
       warning: (warningCode) {
@@ -37,6 +39,7 @@ class RoomCallViewModel extends GetxController{
       },
     ));
   }
+
   joinChannel() async {
     if (defaultTargetPlatform == TargetPlatform.android) {
       await Permission.microphone.request();
@@ -73,15 +76,18 @@ class RoomCallViewModel extends GetxController{
       print('setEnableSpeakerphone $err');
     });
   }
+
   @override
   void onInit() {
-    super.onInit();
     initAgora();
+    super.onInit();
   }
+
   @override
   void onClose() {
-    super.onClose();
     rtcEngine.disableAudio();
     rtcEngine.destroy();
+    super.onClose();
   }
+
 }

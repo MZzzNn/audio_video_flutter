@@ -13,26 +13,30 @@ class VideoCallViewModel extends GetxController{
     await [Permission.camera,Permission.microphone].request();
     rtcEngine = await RtcEngine.create(appID);
     rtcEngine.enableVideo();
+    _addListeners();
+    rtcEngine.joinChannel(token, channelName, null, 0);
+  }
+
+  _addListeners(){
     rtcEngine.setEventHandler(
       RtcEngineEventHandler(
-        joinChannelSuccess: (channel, uid, elapsed) {
-          print('user uid is $uid');
-          localUserJoined = true;
-        },
-        userJoined: (uid,elapsed){
-          print('remote user uid is $uid');
-          remoteUid =uid;
-          update();
-        },
-        userOffline:(uid,reason){
-          print('remote user uid is $uid is left');
-          remoteUid =null;
-          update();
-          Get.back();
-        }
+          joinChannelSuccess: (channel, uid, elapsed) {
+            print('user uid is $uid');
+            localUserJoined = true;
+          },
+          userJoined: (uid,elapsed){
+            print('remote user uid is $uid');
+            remoteUid =uid;
+            update();
+          },
+          userOffline:(uid,reason){
+            print('remote user uid is $uid is left');
+            remoteUid =null;
+            update();
+            Get.back();
+          }
       ),
     );
-    rtcEngine.joinChannel(token, channelName, null, 0);
   }
 
   @override
@@ -40,10 +44,12 @@ class VideoCallViewModel extends GetxController{
     initAgora();
     super.onInit();
   }
+
   @override
   void onClose() {
     rtcEngine.enableAudio();
     rtcEngine.destroy();
     super.onClose();
   }
+
 }
