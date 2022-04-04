@@ -1,16 +1,31 @@
-# audio_video_flutter
 
-A new Flutter project.
+# Audio_Video_Rooms_Flutter App
 
-## Getting Started
+This project help flutter beginner to make Audio call, Video call and Rooms using Agora.
+> Agora.io provides building blocks for you to add real-time voice and video communications through a simple and powerful SDK.
+<p align="center"><a href="assets/images/img_1.png"></a></p>
 
-This project is a starting point for a Flutter application.
+## Overview
+- In the beginning make account in [Agora](https://console.agora.io/) and create project to test then Generate temp RTC token and take `(App ID, Channel Name, token)` in your flutter project as string variable.
+- Use this package [Agora RTC Engine](https://pub.dev/packages/agora_rtc_engine) 
 
-A few resources to get you started if this is your first Flutter project:
+## Audio Call
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This is Audio call screen.
+<p align="center"><a href="assets/images/img_2.png"></a></p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Video Call
+
+This is Video call screen before user join to call.
+<p align="center"><a href="assets/images/img_3.png"></a></p>
+
+<br>
+
+This is Video call screen after user join to call.
+<p align="center"><a href="assets/images/img_4.png"></a></p>
+
+## Room channel
+
+you can join channel or space and left and make mute.
+<p align="center"><a href="assets/images/img_5.png"></a></p>
