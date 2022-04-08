@@ -1,7 +1,7 @@
 
 # Audio_Video_Rooms_Flutter App
 
-This project help flutter beginner to make Audio call, Video call and Rooms using Agora.
+This repository help flutter beginner to make Audio call, Video call and Rooms using Agora.
 > Agora.io provides building blocks for you to add real-time voice and video communications through a simple and powerful SDK.
 <p align="center">
 <img src="assets/images/img_1.png" width="200" alt="after Video Call">
